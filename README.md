@@ -1,10 +1,20 @@
-# *(categoria do robô)*
+# *Mini Sumô*
 
-Este é um template para organização de projetos de robôs *(categoria do robô)*. Use este template como base para organizar seu projeto. Modifique os README para atender aos requisitos.
+Robô desenvolvido para participar do Torneio Interno de Robôs na categoria “Mini Sumô”, organizado pelo projeto G.E.A.R..
 
 ## Estrutura do Projeto
 
-Este template fornece uma estrutura organizada para desenvolvimento do robô *(categoria do robô)*, com diretorios específicos para cada aspecto do projeto:
+Este registro descreve o processo de criação e desenvolvimento da Equipe 4, composta por cinco membros com as seguintes funções:
+
+Fernanda — Gestora do projeto
+
+Kirisawa — Veterano auxiliar, responsável pela parte técnica, estrutura e fluxo de montagem
+
+Andresa — Programação
+
+Luan — Eletrônica
+
+Rebeca — Estrutura mecânica
 
 ## Organização dos Diretórios
 ```
@@ -19,9 +29,7 @@ CATEGORIA_DO_ROBÔ_ANO/
 │
 ├── misc/                       # Miscelânea
 │
-├── simu/                       # Simulação (OPCIONAL)
+├── simu/                       # Simulação 
 │
 └── README.md --> ESTE ARQUIVO  # Resumo geral dos diretórios
 ```
-
-Cada pasta contém um README interno com instruções específicas de uso, dependências e explicações específicas.
