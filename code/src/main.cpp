@@ -1,61 +1,124 @@
 #include <Arduino.h>
-#include <ESP32Servo.h>   //Bibliotecas ESP32
-#include <analogWrite.h>
-#include <ESP32Tone.h>
-#include <ESP32PWM.h>
 
-#include <BLEController.h>
+#include <Bluepad32.h>
 
-#define leftMotorPin 25   //Pino Motor Esquerdo
-#define rightMotorPin 26  //Pino Motor Direito
-
-Servo MotorEsquerdo;
-Servo MotorDireito;
+// Define os pinos dos Motores
+// A definição dos pinos não tá pronta, esse é só um exemplo temporário
+int IN1 = 26;  // Motor Esquerdo - Frente
+int IN2 = 25;  // Motor Esquerdo - Trás
+int IN3 = 33;  // Motor Direito - Frente
+int IN4 = 32;  // Motor Direito - Trás
+int BUZZER = 27;
 
 
 void setup() 
-{
+{ 
+  //Configuração dos pinos
   Serial.begin(115200);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
+
+  //Inicia o Controle
   controller.begin();
 
-  while(!controller.isConnected())    //Se Controle não estiver conectado vai printar isso
+  //Testa a conexão do Controle
+  while(!controller.isConnected())
   {
     Serial.println("Esperando Conexão");
     delay(250);
   }
-
-  MotorEsquerdo.attach(leftMotorPin);
-  MotorDireito.attach(rightMotorPin);
-  MotorEsquerdo.write(90);
-  MotorDireito.write(90);
-
-  Serial.println("Conexão Estabelecida");    //Se Controle estiver conectado vai printar isso
+  Serial.println("Conexão Estabelecida");
 }
 
 void loop() 
 {
   if (controller.isConnected()) 
   {
-    int RStickX = e.rightStickX;    //Vai andar ao usar o Joystick Esquerdo
+    //Define que usará o Joystick Direito pra andar
+    int RStickX = e.rightStickX;
     int RStickY = e.rightStickY;
 
-    int leftMotorOutput  = constrain(map(LStickY + LStickX, -127, 127, 0, 180), 0, 180); //Mapear os valores 
-    int rightMotorOutput = constrain(map(LStickY - LStickX, -127, 127, 0, 180), 0, 180);
+    //Re-mapea os valores do Joystick
+    int pwmEsquerda  = constrain(map(LStickY + LStickX, -127, 127, -255, 255), -255, 255);
+    int pwmDireita = constrain(map(LStickY - LStickX, -127, 127, -255, 255), -255, 255);
 
-    if (abs(LStickY) > 15 || abs(LStickX) > 15) 
+    //Comandos de Direção
+    if (pwmDireita >= 85) 
     {
-      MotorEsquerdo.write(leftMotorOutput);
-      MotorDireito.write(rightMotorOutput);
-    } 
+      PS4.sendToController();
+      frente();
+    }
+  else if (pwmDireita <= -85) 
+    {
+      PS4.sendToController();
+      tras();
+    }
+    else if (pwmEsquerda >= 85) 
+    {
+      PS4.sendToController();
+      esquerda();
+    }
+    else if (pwmEsquerda <= -85)
+    {
+      PS4.sendToController();
+      direita();
+    }
     else 
     {
-      MotorEsquerdo.write(90);
-      MotorDireito.write(90);
+      parar()
     }
   }
 
-
-  Serial.print(leftMotorOutput);    //Verificação se os valores de Saída estão corretos
+  //Verificação se os valores de Saída estão corretos
+  Serial.print(leftMotorOutput);
   Serial.print(" ");
   Serial.println(rightMotorOutput);
+}
+
+
+
+
+
+//Funções das Direções
+void parar()
+{
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, LOW);
+}
+
+void frente()
+{
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+}
+
+void tras()
+{
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+
+void esquerda()
+{
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW);
+  digitalWrite(IN4, HIGH);
+}
+
+void direita()
+{
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
 }
