@@ -19,3 +19,7 @@ O sistema eletrônico do **Jack** foi planejado para garantir:
 - **Eficiência** (baixo consumo com três pilhas AA).
 
 ---
+
+## ⚙️ Componentes Principais do Sistema Eletrônico
+
+A seguir estão listados os principais componentes utilizados na montagem eletrônica do robô **Jack**, com suas respectivas funções dentro do sistema:
