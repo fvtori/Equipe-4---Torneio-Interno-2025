@@ -54,5 +54,28 @@ A seguir estão listados os principais componentes utilizados na montagem eletr�
 - **V+ dos drivers (placas de servo modificadas):** ligar no **mesmo positivo da bateria (antes do regulador)** para não sobrecarregar o regulador do expansor.  
 - **GND comum:** **obrigatório** unir o GND da bateria, do expansor/ESP32 e dos dois drivers.  
 - **EN/PWM e IN1/IN2**: saem da ESP32 (nível lógico), **somente sinais**.
+  
+- Para o detalhamento completo das conexões (fio a fio, diagramas e fotos da montagem), acesse o diretório [`/electronics/esqm_circ`](./esqm_circ/).
 
-### Diagrama simplificado (texto)
+  ---
+  
+## 🧩 Pinagem e Conexões Lógicas da ESP32
+
+A tabela abaixo mostra a distribuição dos pinos da **ESP32 (38 pinos)** utilizada no robô **Jack**, indicando as funções de controle, sensores e periféricos:
+
+| Função / Componente | Pino da ESP32 | Tipo de Sinal | Descrição / Observações |
+|---------------------|----------------|----------------|--------------------------|
+| **Motor Esquerdo — IN1** | GPIO22 | Saída Digital | Sentido de rotação (1) |
+| **Motor Esquerdo — IN2** | GPIO23 | Saída Digital | Sentido de rotação (2) |
+| **Motor Esquerdo — EN/PWM** | GPIO21 | Saída PWM | Controle de velocidade |
+| **Motor Direito — IN1** | GPIO18 | Saída Digital | Sentido de rotação (1) |
+| **Motor Direito — IN2** | GPIO19 | Saída Digital | Sentido de rotação (2) |
+| **Motor Direito — EN/PWM** | GPIO5 | Saída PWM | Controle de velocidade |
+| **Buzzer** | GPIO2 | Saída Digital | Ativação sonora de status |
+| **LED de Status (opcional)** | GPIO4 | Saída Digital | Pode indicar energização ou modo ativo |
+| **Bluetooth (Bluepad32)** | Integrado na ESP32 | Comunicação sem fio | Recebe comandos do controle Xbox One |
+| **Alimentação** | VIN / GND | Energia | 3x pilhas AA conectadas ao pad do conector DC do expansor (com fusível e chave) |
+| **GND Comum** | — | — | GND interligado entre ESP32, drivers e motores |
+
+> **Nota:** As portas podem variar conforme testes futuros. A pinagem será atualizada conforme as revisões do firmware forem feitas.
+
