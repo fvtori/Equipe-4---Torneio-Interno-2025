@@ -57,25 +57,28 @@ A seguir estão listados os principais componentes utilizados na montagem eletr�
   
 - Para o detalhamento completo das conexões (fio a fio, diagramas e fotos da montagem), acesse o diretório [`/electronics/esqm_circ`](./esqm_circ/).
 
-  ---
-  
+---
+
 ## 🧩 Pinagem e Conexões Lógicas da ESP32
 
-A tabela abaixo mostra a distribuição dos pinos da **ESP32 (38 pinos)** utilizada no robô **Jack**, indicando as funções de controle, sensores e periféricos:
+As conexões do sistema eletrônico do robô **Jack** seguem o diagrama mostrado na pasta `/esqm_circ/`.  
+Abaixo está o resumo das ligações **reais**, conforme o circuito montado.
 
 | Função / Componente | Pino da ESP32 | Tipo de Sinal | Descrição / Observações |
 |---------------------|----------------|----------------|--------------------------|
-| **Motor Esquerdo — IN1** | GPIO22 | Saída Digital | Sentido de rotação (1) |
-| **Motor Esquerdo — IN2** | GPIO23 | Saída Digital | Sentido de rotação (2) |
-| **Motor Esquerdo — EN/PWM** | GPIO21 | Saída PWM | Controle de velocidade |
-| **Motor Direito — IN1** | GPIO18 | Saída Digital | Sentido de rotação (1) |
-| **Motor Direito — IN2** | GPIO19 | Saída Digital | Sentido de rotação (2) |
-| **Motor Direito — EN/PWM** | GPIO5 | Saída PWM | Controle de velocidade |
-| **Buzzer** | GPIO2 | Saída Digital | Ativação sonora de status |
-| **LED de Status (opcional)** | GPIO4 | Saída Digital | Pode indicar energização ou modo ativo |
-| **Bluetooth (Bluepad32)** | Integrado na ESP32 | Comunicação sem fio | Recebe comandos do controle Xbox One |
-| **Alimentação** | VIN / GND | Energia | 3x pilhas AA conectadas ao pad do conector DC do expansor (com fusível e chave) |
-| **GND Comum** | — | — | GND interligado entre ESP32, drivers e motores |
+| **Motor Esquerdo (Driver 1)** | GPIO22 | Saída Digital | Sinal de controle direto do driver do motor esquerdo |
+| **Motor Direito (Driver 2)** | GPIO23 | Saída Digital | Sinal de controle direto do driver do motor direito |
+| **Buzzer** | GPIO2 | Saída Digital | Emite sinal sonoro de status (ex.: inicialização) |
+| **Alimentação Principal** | VIN / GND | Energia | Alimentação proveniente do case de 3 pilhas AA via switch e fusível |
+| **Bluetooth (Bluepad32)** | Integrado | Comunicação sem fio | Responsável pelo recebimento dos comandos do controle Xbox One |
+| **GND Comum** | — | — | Todos os módulos (ESP32, drivers e motores) compartilham o mesmo GND |
 
-> **Nota:** As portas podem variar conforme testes futuros. A pinagem será atualizada conforme as revisões do firmware forem feitas.
+> 🔎 **Observação:**  
+> As placas de servo **não estão operando como pontes H**, mas sim como **drivers simples**, onde o sinal da ESP32 ativa diretamente o motor em um único sentido de rotação.  
+> Cada motor é controlado por um único pino digital, e o controle de velocidade ou inversão de sentido **não está implementado nesta versão**.
+
+---
+
+📎 Para visualizar o esquema detalhado e as ligações físicas, consulte o diretório [`/electronics/esqm_circ`](./esqm_circ/), onde estão os diagramas e imagens do circuito completo.
+
 
