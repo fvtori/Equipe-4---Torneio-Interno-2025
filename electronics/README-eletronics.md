@@ -36,3 +36,23 @@ A seguir estão listados os principais componentes utilizados na montagem eletr�
 | **Interruptor (Switch)** | 1 | Liga e desliga toda a alimentação do circuito. | Integrado ao case das pilhas. |
 | **Case de Pilhas (3x AA)** | 1 | Fornece energia elétrica ao sistema. | Alimenta ESP32 e pontes H. |
 | **Cabos Jumper e Fios** | — | Fazem as interligações entre os módulos. | Usados conforme necessidade do protótipo. |
+
+---
+
+## 🔌 Alimentação e Ligações de Energia
+
+**Fonte:** case com **3 pilhas AA**  
+**Caminho da energia (feito no protótipo):**
+1) Case de pilhas **(+/–)** → **chave liga/desliga (switch)**  
+2) **Switch → fusível (PTC ou vidro)** em série  
+3) **Fusível → pads do conector DC** (parte inferior do expansor da ESP32)  
+4) O **regulador onboard do expansor** converte a entrada para as tensões usadas pela **ESP32** (5 V/3,3 V, conforme a placa)
+
+> **Por que assim?** O expansor suporta entrada **até 16 V** e **já regula** para a ESP32. Portanto **não é necessário regulador externo** só para a placa de controle.
+
+### Motores e drivers
+- **V+ dos drivers (placas de servo modificadas):** ligar no **mesmo positivo da bateria (antes do regulador)** para não sobrecarregar o regulador do expansor.  
+- **GND comum:** **obrigatório** unir o GND da bateria, do expansor/ESP32 e dos dois drivers.  
+- **EN/PWM e IN1/IN2**: saem da ESP32 (nível lógico), **somente sinais**.
+
+### Diagrama simplificado (texto)
