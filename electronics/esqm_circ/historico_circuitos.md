@@ -28,7 +28,7 @@ O propósito desta primeira versão foi **explorar visualmente a arquitetura el�
 - Onde seriam posicionados os componentes principais;  
 - E como os motores e o buzzer seriam integrados ao controle lógico.
 
-- ---
+---
 
 ### ⚙️ Circuito Teste 2 — Planejamento para Transição à PCB
 
@@ -56,14 +56,88 @@ O objetivo desta fase foi **planejar a implementação física definitiva do cir
 
 A ideia era que a futura PCB concentrasse **toda a parte elétrica principal**, incluindo a ESP32, o regulador, os conectores dos motores e o buzzer.
 
----
-
 #### ⚙️ Desafios e decisões
 Apesar de o conceito ser promissor, a equipe identificou algumas dificuldades práticas:
 - O **tamanho da placa** seria considerável, aumentando o peso e a complexidade do robô;  
 - O **processo de soldagem** exigiria tempo e precisão elevados;  
 - O número de fios e trilhas seria grande, o que aumentava a chance de erro e dificultava a manutenção.
 
-Esses fatores levaram à decisão de **não prosseguir com a fabricação da PCB** neste estágio, concentrando esforços em buscar uma solução mais compacta e funcional para a alimentação e distribuição de energia.
+Esses fatores levaram à decisão de **não prosseguir com o uso da PCB** neste estágio, concentrando esforços em buscar uma solução mais compacta e funcional para a alimentação e distribuição de energia.
 
+---
 
+### ⚙️ Circuito Teste 3 — Implementação de Proteções e Uso do Expansor da ESP32
+
+![Circuito Teste 3](../img/circuito_teste3.png)
+
+O **Circuito Teste 3** marcou uma das maiores evoluções no projeto eletrônico do robô **Jack**.  
+Nesta versão, a equipe focou em **otimizar o espaço físico, melhorar a segurança elétrica e reduzir a quantidade de fios**, aproximando o design do formato que seria utilizado no protótipo final.
+
+Diferente das versões anteriores, este circuito já apresenta uma **configuração mais realista e organizada**, com elementos de proteção e componentes atualizados conforme a disponibilidade no laboratório G.E.A.R.
+
+#### 🔧 Principais mudanças e melhorias
+- **Regulador de tensão LM2596:** substituiu o antigo **7805**, já que este não estava disponível no laboratório. O LM2596, além de ser **ajustável e mais eficiente**, dissipa menos calor e garante maior estabilidade.  
+- **Interruptor compacto:** adotado no lugar da chave *switch* tradicional, oferecendo **menor consumo de espaço** e melhor integração ao corpo do robô.  
+- **Duas medidas de proteção:**  
+  - **Fusível** entre a bateria e a **ponte H**, evitando sobrecorrente nos motores;  
+  - **Polyfuse (PTC resetável)** em série com o circuito lógico, protegendo a **ESP32 e o regulador** contra curtos e aquecimentos.  
+- **Expansor da ESP32:** substituiu a placa simples, funcionando como **protoboard integrada**, o que **reduziu a quantidade de fios** e **facilitou as conexões** de sensores e drivers.  
+- **Buzzer** mantido como componente auxiliar de sinalização, agora ligado diretamente ao expansor.
+
+#### 🔋 Organização da alimentação
+O novo arranjo manteve o uso de **duas baterias 18650 (7,4 V totais)** como fonte principal, agora com melhor distribuição:
+1. A energia passa primeiro pelo **interruptor principal**;
+2. Em seguida, é direcionada ao **fusível dos motores** e ao **polyfuse do circuito lógico**;
+3. O **regulador LM2596** reduz a tensão para o valor ideal da ESP32 e demais módulos.
+
+Essa configuração tornou o sistema mais seguro, evitando riscos de sobrecarga e incêndio — um passo importante para garantir confiabilidade durante o torneio.
+
+#### ⚙️ Considerações do design
+Além das melhorias elétricas, esta versão trouxe uma grande vantagem mecânica: a **eliminação da protoboard**.  
+Com o expansor da ESP32, todas as conexões ficaram mais firmes, reduzindo o risco de mau contato e simplificando o layout geral do robô.  
+
+A equipe também pôde visualizar de forma mais clara a **separação das linhas de potência e lógica**, o que facilita futuras manutenções e diagnósticos.
+
+---
+
+### ⚙️ Circuito Teste 4 — Versão Final Simplificada com Placas de Servo
+
+![Circuito Teste 4](../img/Circuito_teste4.png)
+
+O **Circuito Teste 4** representa a **versão final e mais otimizada** do sistema eletrônico do robô **Jack**.  
+Nesta configuração, o foco principal foi **reduzir o peso total do robô, simplificar as conexões e eliminar componentes desnecessários**, sem comprometer a segurança ou a eficiência elétrica.  
+O resultado foi um circuito leve, confiável e funcional, perfeitamente adaptado para as dimensões do robô mini-sumô.
+
+#### 🔋 Mudanças principais
+- **Bateria com 3 células AA:** substituiu as antigas baterias 18650, oferecendo uma solução mais compacta e leve, com **tensão nominal de 3,7 V** — valor adequado para o funcionamento do expansor e dos motores.  
+- **Eliminação da Ponte H (L298N):** foi substituída por **duas placas de servo modificadas**, reaproveitadas de servomotores comuns.  
+  Essas placas funcionam como **drivers simples de motor**, controladas diretamente pela ESP32.  
+- **Placas de servo como drivers:** cada motor DC passou a ser controlado individualmente por uma placa de servo, recebendo o sinal PWM da ESP32.  
+  Isso reduziu o número de fios e o tamanho do circuito, mantendo um controle estável e eficiente.  
+- **Buzzer ativo:** manteve-se ligado à ESP32, atuando como alerta sonoro durante a inicialização e operação.  
+- **Uso do expansor da ESP32:** seguiu como o núcleo da parte eletrônica, com o diferencial de permitir **soldagem direta de alimentação e GND** na parte inferior da placa.
+
+#### ⚙️ Estrutura elétrica e ligações diretas
+Uma das decisões mais importantes nesta versão foi **eliminar completamente o uso de um regulador de tensão externo**.  
+O **fio positivo proveniente do interruptor** foi soldado diretamente no **pino de entrada DC do expansor** (localizado na parte inferior da placa), o qual possui **suporte para até 16 V** e já contém **regulagem interna de tensão**.  
+O **fio GND** também foi soldado diretamente no pino correspondente da parte inferior do expansor.
+
+Esse método trouxe várias vantagens:
+- **Redução de peso**, já que o regulador LM2596 foi removido;  
+- **Menor número de fios expostos**, com conexões mais curtas e diretas;  
+- **Aproveitamento do regulador onboard** do expansor, que fornece automaticamente as tensões adequadas (5 V e 3,3 V) para a ESP32 e periféricos;  
+- **Maior confiabilidade elétrica**, com menos pontos de falha e menor queda de tensão.
+
+#### 🧠 Organização geral do circuito
+1. **Case de 3 pilhas AA** → **interruptor principal** → **entrada DC do expansor** (soldada diretamente).  
+2. **Regulador interno do expansor** fornece 5 V e 3,3 V para a ESP32 e para os sinais lógicos.  
+3. **Drivers (placas de servo)** são alimentados diretamente pela linha de VCC, compartilhando o mesmo **GND comum**.  
+4. **GPIO22 e GPIO23** controlam os motores esquerdo e direito, respectivamente.  
+5. **GPIO2** é utilizado para o buzzer.
+
+#### 💡 Benefícios finais
+- Circuito mais **leve**, **limpo** e **fácil de montar**;  
+- **Menor dissipação de calor** e maior eficiência;  
+- **Menos fios e menor risco de desconexão** durante o combate;  
+- Utilização inteligente dos **recursos nativos do expansor da ESP32**;  
+- Estrutura elétrica compacta, ideal para o robô mini-sumô.
