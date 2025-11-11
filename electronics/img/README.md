@@ -1,3 +1,5 @@
-# img
+# Histórico de Desenvolvimento do Circuito — Robô Jack
 
-Adicione aqui os arquivos de mídia (.png, .jpg, .gif, etc)
+Este documento mostra a evolução do circuito eletrônico do robô **Jack**, desde as primeiras versões de teste até o modelo final utilizado na competição.
+
+---
