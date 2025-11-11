@@ -9,11 +9,10 @@ Os itens listados abrangem desde a alimentação até os módulos de controle e 
 
 | Item | Quantidade | Especificação | Função / Observações |
 |------|-------------|---------------|----------------------|
-| Case para 3 pilhas AA | 1 | Saída ~4,5 V | Fonte principal de energia do robô |
-| Pilhas AA | 3 | Alcalinas ou recarregáveis | Alimentação principal do sistema |
+| Case para 3 pilhas AA | 1 | Saída ~3,7 V | Fonte principal de energia do robô |
+| Pilhas AA | 3 | Recarregáveis | Alimentação principal do sistema |
 | Interruptor simples | 1 | 3 A / 12 V | Liga/desliga geral da alimentação |
 | Fusível de vidro | 1 | 1 A / 250 V | Proteção contra sobrecorrente nos motores |
-| Polyfuse (PTC) | 1 | 500 mA resetável | Proteção contra curtos no circuito lógico |
 
 ---
 
@@ -50,7 +49,7 @@ Os itens listados abrangem desde a alimentação até os módulos de controle e 
 |------|-------------|---------------|----------------------|
 | Fios jumper / soldáveis | Diversos | AWG 22–24 | Conexões entre módulos e alimentação |
 | Estanho e solda | — | — | Fixação permanente de conexões |
-| Suporte de montagem | — | Acrílico ou PLA | Fixação dos módulos no corpo do robô |
+| Suporte de montagem | — | Até então PLA ou PETG | Fixação dos módulos no corpo do robô |
 
 ---
 
@@ -61,9 +60,4 @@ Os itens listados abrangem desde a alimentação até os módulos de controle e 
 - Os **drivers foram obtidos a partir da modificação de servos**, reduzindo custo e volume.  
 - O **expansor da ESP32** possui regulador onboard, dispensando componentes externos de tensão.  
 - Todos os **módulos compartilham o mesmo GND**, garantindo estabilidade elétrica.
-
----
-
-📎 **Versão do documento:** 1.0 — Atualizado em novembro de 2025  
-📘 **Autor:** Luan — Responsável pela parte de eletrônica da Equipe 4
-
+  
