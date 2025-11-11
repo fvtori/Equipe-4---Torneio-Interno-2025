@@ -6,4 +6,4 @@ Este documento mostra a evolução do circuito eletrônico do robô **Jack**, de
 
 ### 🧪 Circuito Teste 1
 
-![Circuito introdutório - versão inicial](../img/circuito_intro.png)
+![Circuito introdutório - versão inicial](../img/Circuito Oficial.png)
