@@ -6,7 +6,7 @@ Este documento mostra a evolução do circuito eletrônico do robô **Jack**, de
 
 ### 🧪 Circuito Teste 1
 
-![Circuito introdutório - versão inicial](../img/Circuito Oficial.png)
+![Circuito introdutório - versão inicial](../img/Circuito_teste1.jpg)
 
 O primeiro circuito desenvolvido para o robô **Jack** teve como principal finalidade **representar conceitualmente o sistema eletrônico** do projeto.  
 Nesta etapa, ainda não foram realizados testes práticos, com o objetivo sendo apenas **visualizar e planejar** como seria feita a distribuição de energia e o controle básico dos motores.
@@ -32,7 +32,7 @@ O propósito desta primeira versão foi **explorar visualmente a arquitetura el�
 
 ### ⚙️ Circuito Teste 2 — Planejamento para Transição à PCB
 
-![Circuito Teste 2](../img/circuito_teste2.png)
+![Circuito Teste 2](../img/Circuito_teste2.jpg)
 
 Nesta segunda etapa, a equipe buscou **aperfeiçoar o planejamento elétrico** do robô **Jack**, avançando do modelo conceitual inicial para uma proposta **mais estruturada e realista**.  
 A principal mudança foi a **intenção de substituir o uso da protoboard por uma placa PCB personalizada**, onde os componentes seriam soldados, garantindo maior confiabilidade durante a competição.
@@ -68,7 +68,7 @@ Esses fatores levaram à decisão de **não prosseguir com o uso da PCB** neste 
 
 ### ⚙️ Circuito Teste 3 — Implementação de Proteções e Uso do Expansor da ESP32
 
-![Circuito Teste 3](../img/circuito_teste3.png)
+![Circuito Teste 3](../img/Circuito_teste3.jpg)
 
 O **Circuito Teste 3** marcou uma das maiores evoluções no projeto eletrônico do robô **Jack**.  
 Nesta versão, a equipe focou em **otimizar o espaço físico, melhorar a segurança elétrica e reduzir a quantidade de fios**, aproximando o design do formato que seria utilizado no protótipo final.
@@ -102,7 +102,7 @@ A equipe também pôde visualizar de forma mais clara a **separação das linhas
 
 ### ⚙️ Circuito Teste 4 — Versão Final Simplificada com Placas de Servo
 
-![Circuito Teste 4](../img/Circuito_teste4.png)
+![Circuito Teste 4](../img/Circuito_Oficial.jpg)
 
 O **Circuito Teste 4** representa a **versão final e mais otimizada** do sistema eletrônico do robô **Jack**.  
 Nesta configuração, o foco principal foi **reduzir o peso total do robô, simplificar as conexões e eliminar componentes desnecessários**, sem comprometer a segurança ou a eficiência elétrica.  
