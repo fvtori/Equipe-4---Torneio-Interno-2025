@@ -62,3 +62,52 @@ A seguir estão listados os principais componentes utilizados na montagem eletr�
 | **Fusível** | 1 | Proteção contra curto-circuito e sobrecorrente. | Instalado após o switch na alimentação principal. |
 | **Buzzer** | 1 | Emite sinal sonoro para indicar o estado do sistema. | Controlado por um pino digital da ESP32. |
 | **Cabos e fios de ligação** | — | Realizam a interligação entre bateria, ESP32, ponte H e motores. | Utilizados fios mais curtos e leves para reduzir peso. |
+
+## 🔌 Alimentação e Ligações de Energia
+
+O sistema eletrônico do robô **Jack** é alimentado por uma **bateria de lítio 2S (≈ 7,4 a 7,8V)**, responsável por fornecer energia tanto para os motores de tração quanto para a parte lógica (ESP32).
+
+Nesta versão do projeto, **não é utilizado regulador de tensão externo**, pois a própria **ponte H L298N** fornece uma saída regulada de **5V**, que é utilizada para alimentar a **ESP32**.
+
+### 🔋 Caminho da alimentação no circuito
+
+O percurso da energia no robô segue a seguinte lógica:
+
+1. **Bateria 2S (7,4 – 7,8V)**  
+   → fornece energia principal do sistema.
+
+2. O **fio positivo da bateria** passa por:  
+   - um **interruptor (switch)**, responsável por ligar e desligar todo o robô;  
+   - e um **fusível**, instalado em série para proteção contra curto-circuito.
+
+3. Após o fusível, o positivo é distribuído para:
+   - o pino **VCC (12V)** da ponte H **L298N**;
+   - a entrada do sistema de alimentação geral do robô.
+
+4. A partir da **saída de 5V da L298N**, é feita a alimentação da **ESP32** pelo pino **5V/VIN**.
+
+5. Todos os componentes compartilham o **mesmo GND**, ou seja:
+   - GND da bateria  
+   - GND da ponte H  
+   - GND da ESP32  
+   estão conectados em comum.
+
+---
+
+### ⚠️ Observações importantes sobre a alimentação:
+
+- A **tensão de 7,4V** é aplicada diretamente na ponte H, pois ela é projetada para trabalhar com esse nível de tensão nos motores.
+- A **ESP32 não recebe 7,4V diretamente**, ela recebe apenas **5V regulados** vindos da ponte H (através da saída 5V da L298N).
+- O GND comum é fundamental para o correto funcionamento do controle dos motores.
+- O interruptor está ligado no **fio positivo**.
+
+---
+
+### 🧠 Resumo da alimentação:
+
+| Elemento | Alimentação |
+|---------|--------------|
+| ESP32 | 5V (fornecido pela L298N) |
+| Ponte H L298N | 7,4 – 7,8V (direto da bateria) |
+| Motores N20 | 7,4 – 7,8V (via L298N) |
+| Buzzer | 5V (fornecido pela saída da L298N) |
