@@ -45,6 +45,20 @@ O sistema conta ainda com:
 - Um **buzzer** para sinalização sonora (por exemplo, quando o robô é ligado).
 
 Os motores utilizados atualmente são dois **motores DC N20 com caixa de redução**, mais leves que os modelos anteriores e mais adequados ao limite de peso da competição.  
-- ✅ Segurança elétrica básica  
 
 Essa versão representa a **arquitetura atual da eletrônica do robô**, utilizada na fase final do projeto para a competição.
+
+## ⚙️ Componentes Principais do Sistema Eletrônico
+
+A seguir estão listados os principais componentes utilizados na montagem eletrônica atual do robô **Jack**, com suas respectivas funções dentro do sistema:
+
+| Componente | Quantidade | Função no Circuito | Observações |
+|-------------|-------------|--------------------|--------------|
+| **ESP32 DevKit (38 pinos)** | 1 | Microcontrolador principal responsável pela comunicação Bluetooth, leitura dos comandos e controle dos motores. | Utiliza biblioteca Bluepad32 para integração com controle Xbox One. |
+| **Ponte H L298N** | 1 | Driver de potência responsável por controlar os dois motores DC (esquerdo e direito). | Canal A → motor esquerdo / Canal B → motor direito. Possui saída de 5V usada para alimentar a ESP32. |
+| **Motores DC N20 com redução** | 2 | Responsáveis pela tração do robô. | Escolhidos por serem mais leves que os modelos anteriores (JGA25-370). |
+| **Bateria de lítio 2S (~7,4 – 7,8V)** | 1 | Fonte principal de energia do sistema. | Substitui o antigo case de 3 pilhas AA. |
+| **Interruptor (Switch)** | 1 | Liga e desliga toda a alimentação do robô. | Instalado em série no fio positivo da bateria. |
+| **Fusível** | 1 | Proteção contra curto-circuito e sobrecorrente. | Instalado após o switch na alimentação principal. |
+| **Buzzer** | 1 | Emite sinal sonoro para indicar o estado do sistema. | Controlado por um pino digital da ESP32. |
+| **Cabos e fios de ligação** | — | Realizam a interligação entre bateria, ESP32, ponte H e motores. | Utilizados fios mais curtos e leves para reduzir peso. |
