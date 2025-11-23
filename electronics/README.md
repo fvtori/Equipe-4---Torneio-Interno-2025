@@ -111,3 +111,62 @@ O percurso da energia no robô segue a seguinte lógica:
 | Ponte H L298N | 7,4 – 7,8V (direto da bateria) |
 | Motores N20 | 7,4 – 7,8V (via L298N) |
 | Buzzer | 5V (fornecido pela saída da L298N) |
+
+## 🧩 Pinagem e Conexões Lógicas — ESP32 + L298N
+
+Nesta versão do projeto do robô **Jack**, os motores são controlados utilizando uma **ponte H L298N**, ligada diretamente à **ESP32 DevKit V1 (38 pinos)**, sem expansor de pinos.
+
+Abaixo estão listadas as conexões entre a **ESP32** e a **ponte H** conforme o circuito atual do robô.
+
+---
+
+### 🔵 Canal A – Motor Esquerdo
+
+| Ponte H (L298N) | Pino ESP32 | Função |
+|-----------------|-----------|--------|
+| **ENA** | GPIO **23** | Controle de velocidade via PWM |
+| **IN1** | GPIO **19** | Controle de direção |
+| **IN2** | GPIO **18** | Controle de direção |
+
+---
+
+### 🔴 Canal B – Motor Direito
+
+| Ponte H (L298N) | Pino ESP32 | Função |
+|-----------------|-----------|--------|
+| **ENB** | GPIO **22** | Controle de velocidade via PWM |
+| **IN3** | GPIO **17** | Controle de direção |
+| **IN4** | GPIO **16** | Controle de direção |
+
+---
+
+### 🔔 Buzzer
+
+| Componente | Pino ESP32 | Função |
+|-----------|-----------|--------|
+| **Buzzer** | GPIO **21** | Emite sinal sonoro de inicialização e diagnóstico |
+
+---
+
+## ⚡ Observações Importantes
+
+- Os pinos **ENA** e **ENB** recebem sinais **PWM**, permitindo o controle da velocidade dos motores.
+- Os pinos **IN1, IN2, IN3 e IN4** controlam a **direção de rotação** dos motores.
+- O **buzzer no GPIO21** é utilizado para:
+  - sinalizar que o robô foi ligado,
+  - provocar o robô adversário emitindo sons,
+  - ou tocar músicas durante a batalha.
+    
+---
+
+### 📌 Resumo rápido da pinagem
+
+| Componente | Pino ESP32 |
+|-----------|-----------|
+| ENA | GPIO 23 |
+| IN1 | GPIO 19 |
+| IN2 | GPIO 18 |
+| ENB | GPIO 22 |
+| IN3 | GPIO 17 |
+| IN4 | GPIO 16 |
+| Buzzer | GPIO 21 |
