@@ -1,24 +1,7 @@
 # Diretório de Mecânica
+Este diretório contém todos os arquivos relacionados ao projeto mecânico do robô (Mini Sumô), incluindo:
 
-Este diretório deve conter todos os arquivos relacionados ao projeto mecânico do robô (categoria do robô), incluindo:
----
-
-## Conteúdo do Diretório
-
-Aqui devem estar armazenados:
-
-- **Arquivos CAD 3D**
-- **Desenhos técnicos**
-- **Arquivos para impressão 3D**
-- **Listas de materiais (BOM – Bill of Materials)**
-- **Guias de montagem mecânica**
-- **Especificações de peças**
-
----
-
-## Estrutura Recomendada
-
-## Organização dos Diretórios
+## Conteúdo
 ```
 mecanica/
 │
