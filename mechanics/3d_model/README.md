@@ -38,5 +38,3 @@ O modelo conta com um protótipo de rampa na parte frontal, integrada ao chassi,
 A visualização completa do robô montado pode ser encontrada em:
 
 **`Montagem.iam`**
-
----
