@@ -3,7 +3,7 @@ Este diretório contém todos os arquivos relacionados ao projeto mecânico do r
 
 ## Conteúdo
 ```
-mecanica/
+mechanics/
 │
 ├── 3d_model/ # Modelos 3D das peças com controle de versões
 ├── drawing/ # Desenhos técnicos, vistas e dimensões
