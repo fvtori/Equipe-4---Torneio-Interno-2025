@@ -1,10 +1,9 @@
 # Diretório de Mecânica
 
-Este diretório contém todos os arquivos relacionados ao projeto mecânico do robô, incluindo modelagens 3D, desenhos técnicos, arquivos para impressão 3D, especificações, listas de materiais e documentação das versões do projeto.
-
+Este diretório deve conter todos os arquivos relacionados ao projeto mecânico do robô (categoria do robô), incluindo:
 ---
 
-## 📦 Conteúdo do Diretório
+## Conteúdo do Diretório
 
 Aqui devem estar armazenados:
 
@@ -17,5 +16,15 @@ Aqui devem estar armazenados:
 
 ---
 
-## 📁 Estrutura Recomendada
+## Estrutura Recomendada
 
+## Organização dos Diretórios
+```
+mecanica/
+│
+├── 3d_model/ # Modelos 3D das peças com controle de versões
+├── drawing/ # Desenhos técnicos, vistas e dimensões
+├── assembly/ # Instruções de montagem do robô
+├── stl_file/ # Arquivos prontos para impressão 3D
+└── README.md # Documentação geral e histórico
+```
