@@ -100,72 +100,146 @@ A equipe também pôde visualizar de forma mais clara a **separação das linhas
 
 ---
 
-### ⚙️ Circuito Teste 4 — Integração Completa com L298N e Placa de Expansão
+### ⚙️ Circuito Teste 4 — Compactação Máxima e Uso de Placas de Servo como Drivers
 
 ![Circuito Teste 4](../img/Circuito_teste4.jpg)
 
-O **Circuito Teste 4** marcou a fase de **integração completa dos principais módulos eletrônicos** do robô **Jack**, aproximando o projeto de uma configuração funcional real.  
-Nesta etapa, o foco foi **validar a comunicação entre a ESP32, a ponte H L298N e os motores**, além de testar uma nova forma de organização da alimentação utilizando a **placa de expansão roxa da ESP32**.
+O **Circuito Teste 4** foi desenvolvido como uma tentativa de **reduzir ao máximo o peso e o volume da eletrônica**, priorizando simplicidade e integração direta com o chassi do robô **Jack**.  
+Nesta versão, a equipe buscou eliminar componentes considerados intermediários e avaliar soluções alternativas para o acionamento dos motores.
 
-Diferente dos testes anteriores, este circuito já foi **montado fisicamente** e utilizado para testes práticos de acionamento dos motores e distribuição de energia.
+Diferente das versões anteriores, este circuito foi **montado e testado integralmente**, permitindo observar o comportamento real do sistema sob carga.
 
-A proposta desta versão foi **avaliar desempenho, estabilidade elétrica e viabilidade física** do conjunto dentro do chassi do robô.
+#### 🔧 Principais mudanças em relação ao Circuito Teste 3
+- **Remoção completa do regulador externo (LM2596):** a alimentação passou a utilizar exclusivamente o **regulador onboard da placa de expansão da ESP32**, reduzindo peso e número de componentes.  
+- **Alimentação direta no expansor:** o positivo e o GND da bateria foram ligados diretamente aos **pads inferiores da placa de expansão**, simplificando o caminho da energia.  
+- **Substituição da ponte H:** a L298N foi removida e substituída por **duas placas de servo modificadas**, cada uma responsável por acionar um motor DC.  
+- **Redução de cabeamento:** com menos módulos intermediários, o circuito passou a utilizar fios mais curtos e em menor quantidade.  
 
-#### 🧩 Estrutura e componentes utilizados
-- **Bateria de lítio 2S (7,4 – 7,8 V)**: utilizada como fonte principal de energia, substituindo definitivamente os cases de pilhas.  
-- **Interruptor (switch)**: responsável por ligar e desligar todo o sistema eletrônico.  
-- **Fusível único**: adicionado em série para proteção contra curto-circuito e sobrecorrente.  
-- **Placa de expansão roxa da ESP32**: utilizada para distribuir alimentação (VCC e GND) e facilitar as conexões dos sinais, reduzindo a quantidade de fios.  
-- **Ponte H L298N**: responsável pelo controle bidirecional dos dois motores DC.  
-- **Motores DC N20 com redução**: empregados nos testes por serem mais leves e adequados ao limite de peso.  
-- **Buzzer**: conectado à ESP32 para sinalização sonora durante os testes.  
-- **Módulo carregador de bateria de lítio**: integrado ao circuito para facilitar a recarga da bateria.
+#### 🧩 Estrutura do circuito nesta versão
+- **Case de 3 pilhas AA**, utilizado como fonte de energia nesta etapa de testes;  
+- **Interruptor liga/desliga**, responsável por energizar todo o sistema;  
+- **Placa de expansão roxa da ESP32**, centralizando alimentação e sinais;  
+- **ESP32 DevKit**, responsável pelo controle lógico;  
+- **Duas placas de servo modificadas**, atuando como drivers simples de motor;  
+- **Dois motores DC com redução**, utilizados para ensaios de tração;  
+- **Buzzer**, mantido para sinalização sonora.
 
-#### 🎯 Objetivo da versão
-O objetivo do Circuito Teste 4 foi:
-- Validar o **funcionamento da L298N** com a ESP32 via placa de expansão;  
-- Testar a **distribuição de energia pelos pads da placa de expansão**;  
-- Avaliar o **comportamento dos motores N20** sob carga real;  
-- Analisar a **organização física da elétrica** dentro do robô.
+#### 🔋 Organização da alimentação
+A alimentação seguiu uma topologia direta e simplificada:
+1. A energia das pilhas passa pelo **interruptor principal**;  
+2. O positivo e o GND são conectados diretamente aos **pads da placa de expansão**;  
+3. O regulador onboard do expansor fornece as tensões necessárias para a ESP32;  
+4. Drivers e buzzer compartilham o **GND comum** do sistema.
 
-Apesar de apresentar bons resultados, esta versão ainda foi considerada **experimental**, servindo como base para ajustes finais de organização, simplificação e documentação.
+#### ⚠️ Limitações observadas nos testes
+Apesar de o circuito apresentar funcionamento elétrico estável, os testes práticos revelaram uma limitação crítica:
+
+- As **placas de servo modificadas não forneceram corrente suficiente** para os motores DC;  
+- O sistema apresentou **baixo torque**, especialmente em situações de maior carga;  
+- O desempenho obtido seria insuficiente para aplicações de **mini-sumô**, onde força e resposta rápida são essenciais.
+
+Devido a essas limitações, o **Circuito Teste 4 não foi adotado como solução final**, servindo apenas como etapa experimental.
+
+#### ⚙️ Considerações finais desta etapa
+O Circuito Teste 4 foi importante para demonstrar que:
+- A **compactação extrema da eletrônica é viável**, desde que os drivers sejam adequados;  
+- O uso de soluções reaproveitadas (como placas de servo) pode funcionar em testes leves, mas **não atende às exigências mecânicas da competição**;  
+- A escolha do driver de motor é determinante para o desempenho global do robô.
+
+Os aprendizados obtidos nesta versão direcionaram a equipe para uma solução mais robusta na etapa seguinte do projeto.
 
 ---
 
-### 🏁 Circuito Teste 5 — Circuito Oficial do Robô Jack
+### ⚙️ Circuito Teste 5 — Retorno à Ponte H e Reorganização para Redução de Peso
 
-![Circuito Oficial — Versão Final](../img/Circuito_Final.png)
+![Circuito Teste 5](../img/Circuito_teste5.jpg)
 
-O **Circuito Teste 5** representa a **versão final e oficial** do sistema eletrônico do robô **Jack**, adotada para a competição.  
-Esta configuração é resultado direto dos aprendizados obtidos nos testes anteriores, especialmente no Circuito Teste 4, com refinamentos voltados para **confiabilidade, compactação e facilidade de manutenção**.
+O **Circuito Teste 5** marca a transição definitiva para uma solução **mais robusta de acionamento dos motores**, corrigindo as limitações observadas no Circuito Teste 4.  
+Nesta etapa, a equipe realizou mudanças estruturais importantes, motivadas principalmente por **problemas de torque, confiabilidade elétrica e restrições severas de peso do chassi**.
 
-Nesta versão, o circuito foi **totalmente validado em bancada**, com testes contínuos de acionamento dos motores, alimentação estável da ESP32 e funcionamento correto dos periféricos.
+Embora a imagem apresentada já utilize **motores N20**, este circuito nasceu em um contexto onde ainda eram utilizados **motores maiores (JGA25-370)**, o que influenciou diretamente as decisões iniciais de simplificação extrema da eletrônica.
 
-#### 🧩 Estrutura e componentes atualizados
-- **Bateria de lítio 2S (7,4 – 7,8 V)**: fonte principal de energia do robô.  
-- **Interruptor (switch)**: controle geral de alimentação.  
-- **Fusível único**: protege a ponte H e a alimentação principal contra falhas elétricas.  
-- **Placa de expansão roxa da ESP32**: utilizada como base central da elétrica, com soldagem direta da alimentação nos pads positivo e negativo.  
-- **ESP32 DevKit**: microcontrolador responsável pela lógica, comunicação Bluetooth e controle dos motores.  
-- **Ponte H L298N**: driver de potência para os motores, alimentado diretamente pela bateria.  
-- **Motores DC N20 com caixa de redução**: responsáveis pela tração do robô.  
-- **Módulo carregador de bateria de lítio**: permite recarga da bateria sem desmontagem do robô.  
-- **Buzzer ativo**: utilizado para sinalização sonora e feedback do sistema.
+#### 🔧 Principais mudanças em relação ao Circuito Teste 4
+- **Remoção das placas de servo modificadas:** abandonadas devido à incapacidade de fornecer corrente e torque adequados para os motores em condições reais de combate.  
+- **Retorno da ponte H L298N:** reintroduzida como solução de acionamento mais confiável e robusta para os motores DC.  
+- **Eliminação da placa de expansão da ESP32:** nesta fase, optou-se por ligar a ESP32 diretamente no terminal 5V da ponte h , buscando reduzir peso e volume da eletrônica.  
+- **Uso de um único fusível:** toda a proteção passou a ser feita por **um fusível em série**, conectado da chave diretamente à ponte H.  
+- **Simplificação da alimentação:** redução do número de módulos intermediários para minimizar massa e pontos de falha.
+
+#### 🧩 Estrutura do circuito nesta versão
+- **Bateria de lítio 2S (≈ 7,4 – 7,8 V)** como fonte principal;  
+- **Interruptor liga/desliga**, responsável por energizar todo o sistema;  
+- **Fusível único**, instalado entre a chave e a ponte H;  
+- **Ponte H L298N**, responsável pelo controle dos dois motores;  
+- **ESP32 DevKit**, conectada diretamente à ponte H;  
+- **Motores DC**, inicialmente JGA25-370 e posteriormente substituídos por **N20**;  
+- **Buzzer**, mantido como dispositivo de sinalização.
 
 #### 🔋 Organização da alimentação
-Nesta versão oficial, a alimentação foi organizada da seguinte forma:
-- O **positivo da bateria**, após o switch, é conectado diretamente ao **pad positivo da placa de expansão**;  
-- O **GND da bateria** é conectado ao **pad negativo da placa de expansão**;  
-- A **placa de expansão realiza a regulação interna**, fornecendo as tensões adequadas para a ESP32;  
-- A **ponte H L298N** recebe a tensão da bateria para acionamento dos motores;  
-- Todos os módulos compartilham **GND comum**, garantindo referência elétrica correta.
+A alimentação foi reorganizada de forma mais direta:
+1. A energia da bateria passa pelo **interruptor principal**;  
+2. Em seguida, atravessa **um único fusível**, responsável pela proteção do sistema;  
+3. A tensão é aplicada diretamente à **ponte H L298N**;  
+4. A ESP32 é alimentada a partir do circuito principal, compartilhando **GND comum** com a ponte H.
 
-#### 🎯 Objetivo da versão
-O Circuito Teste 5 teve como objetivo final:
-- Consolidar a **arquitetura elétrica definitiva** do robô;  
-- Reduzir ao máximo o número de fios e pontos de falha;  
-- Garantir **estabilidade elétrica durante combates**;  
-- Facilitar futuras manutenções e ajustes rápidos;  
-- Atender aos **requisitos de peso, espaço e confiabilidade** da competição.
+#### ⚠️ Observações importantes desta etapa
+- A **remoção da placa de expansão** foi motivada exclusivamente por preocupações com **peso**, não por limitações funcionais;  
+- Durante este período, quase foi adotada uma versão definitiva **sem a placa de expansão**, mesmo após a troca dos motores para N20;  
+- A imagem apresentada já reflete uma versão **atualizada com motores N20**, embora o conceito original tenha surgido quando ainda se utilizavam motores maiores.
 
-Esta versão foi adotada como o **circuito oficial do robô Jack**, sendo utilizada na fase final do projeto e durante o **Torneio Interno G.E.A.R. 2025**.
+#### ⚙️ Considerações do design
+O Circuito Teste 5 foi essencial para demonstrar que:
+- A **ponte H é indispensável** para aplicações que exigem torque e resposta rápida;  
+- A busca por redução de peso precisa ser equilibrada com **confiabilidade elétrica**;  
+- Algumas simplificações extremas, embora tentadoras, podem comprometer a evolução do projeto;  
+- A escolha correta dos motores influencia diretamente toda a arquitetura eletrônica.
+
+Este circuito serviu como **ponte de transição** entre as soluções experimentais e a definição da arquitetura elétrica final do robô.
+
+---
+
+### 🏁 Circuito Final (Oficial) — Versão para Competição
+
+![Circuito Final](../img/Circuito_final.jpg)
+
+O *Circuito Final* representa a consolidação de todas as decisões técnicas tomadas ao longo do desenvolvimento do robô *Jack, unindo **robustez elétrica, organização física e praticidade de uso* para a competição de mini-sumô.
+
+Com a definição definitiva do uso dos *motores DC N20, tornou-se necessário **reavaliar o balanceamento de peso do robô*, garantindo tração suficiente sem comprometer a confiabilidade do sistema eletrônico.  
+Dessa forma, algumas soluções anteriormente descartadas foram *reintroduzidas de forma estratégica*.
+
+#### 🔧 Principais ajustes em relação ao Circuito Teste 5
+- *Retorno da placa de expansão da ESP32:* reintroduzida para:
+  - auxiliar no *balanceamento de peso* do robô;
+  - organizar melhor a distribuição de VCC, GND e sinais;
+  - aumentar a robustez mecânica das conexões durante os combates.
+- *Manutenção da ponte H L298N:* definida como driver definitivo dos motores N20, garantindo torque adequado e resposta confiável.  
+- *Uso de um único fusível:* mantido entre a chave e a ponte H, oferecendo proteção suficiente com menor complexidade.  
+- *Inclusão de módulo carregador de bateria de lítio:* permitindo a *recarga direta da bateria*, sem a necessidade de fontes externas ou desmontagem do robô.
+
+#### 🧩 Estrutura do circuito final
+- *Bateria de lítio 2S (≈ 7,4 – 7,8 V)* como fonte principal;  
+- *Interruptor liga/desliga*, controlando toda a alimentação do sistema;  
+- *Fusível único*, protegendo o circuito de potência;  
+- *Módulo carregador de bateria de lítio*, conectado diretamente à bateria;  
+- *Placa de expansão da ESP32*, utilizada como base física e elétrica;  
+- *ESP32 DevKit*, responsável pelo controle lógico e comunicação;  
+- *Ponte H L298N*, controlando os dois motores DC N20;  
+- *Motores DC N20 com redução*, definidos como solução final de tração;  
+- *Buzzer*, utilizado para sinalização sonora.
+
+#### 🔋 Organização da alimentação
+A alimentação foi estruturada de forma prática e confiável:
+1. A bateria alimenta o sistema através do *interruptor principal*;  
+2. O circuito de potência passa por *um único fusível* antes da ponte H;  
+3. A *placa de expansão* recebe a alimentação e distribui VCC e GND para a ESP32;  
+4. O *módulo carregador* permanece conectado à bateria, permitindo recarga sem alterações no circuito;  
+5. Todos os módulos compartilham *GND comum*, garantindo estabilidade dos sinais.
+
+#### ⚙️ Benefícios da configuração final
+- *Melhor distribuição de peso*, essencial para o desempenho do mini-sumô;  
+- *Conexões mais firmes e organizadas*, reduzindo falhas por vibração ou impacto;  
+- *Facilidade de manutenção e recarga*, sem desmontagem do robô;  
+- *Arquitetura elétrica estável*, adequada às exigências da competição;  
+- Aproveitamento equilibrado entre *simplicidade, robustez e funcionalidade*.
+
+O Circuito Final representa a *versão definitiva utilizada na competição, resultado direto dos aprendizados obtidos ao longo de todas as versões de teste, consolidando uma solução confiável, prática e eficiente para o robô **Jack*.
