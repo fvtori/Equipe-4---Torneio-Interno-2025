@@ -10,10 +10,19 @@ O modelo inicial é composto por um chassi que abriga dois motores de alto torqu
 
 ### Função de Cada Componente
 
-- **Base (Chassi):**  
+- **Base (Chassi):**
+<div align="center">
+  <img width="300" height="235" alt="image" src="https://github.com/user-attachments/assets/e3ca4a32-1977-4891-afc6-e29333bb2f4b" />
+</div>
+
   Abriga motores, rodas e partes do sistema de transmissão.
 
-- **Engrenagem Cônica:**  
+- **Engrenagem Cônica:**
+  
+<div align="center">
+  <img width="392" height="433" alt="image" src="https://github.com/user-attachments/assets/670c9c31-cd83-41e5-a682-6aac47c7db8f" />
+ </div>
+
   Transmite o movimento do motor para a roda que mantêm uma relação de 90°.
 
 - **Bucha:**
@@ -25,7 +34,7 @@ O modelo inicial é composto por um chassi que abriga dois motores de alto torqu
   Mantém o espaçamento correto entre o rolamento e a parede interna do chassi.
 
 - **Arruela:**
-- 
+  
   <div align="center">
   <img width="250" height="292" alt="image" src="https://github.com/user-attachments/assets/6521ac43-c56a-4f82-b45d-2198e839acd1" />
   </div>
@@ -34,7 +43,11 @@ O modelo inicial é composto por um chassi que abriga dois motores de alto torqu
   Auxilia na fixação e na distribuição da carga da roda.
   
 
-- **Rolamento:**  
+- **Rolamento:**
+  <div align="center">
+    <img width="300" height="241" alt="image" src="https://github.com/user-attachments/assets/9f086d1f-195b-4583-ab2e-608071ad3a6a"/>
+ </div>
+
   Permite o giro suave da roda e conecta o eixo ao conjunto de engrenagem.
 
 ---
