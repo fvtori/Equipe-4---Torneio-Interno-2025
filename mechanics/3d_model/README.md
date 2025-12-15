@@ -19,8 +19,11 @@ O modelo inicial é composto por um chassi que abriga dois motores de alto torqu
 - **Bucha:**  
   Mantém o espaçamento correto entre o rolamento e a parede interna do chassi.
 
-- **Arruela:**  
+- **Arruela:**
+  <img width="380" height="444" alt="image" src="https://github.com/user-attachments/assets/6521ac43-c56a-4f82-b45d-2198e839acd1" />
+
   Auxilia na fixação e na distribuição da carga da roda.
+  
 
 - **Rolamento:**  
   Permite o giro suave da roda e conecta o eixo ao conjunto de engrenagem.
