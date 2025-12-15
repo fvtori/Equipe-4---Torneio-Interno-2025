@@ -15,15 +15,15 @@ Os links apresentados servem como base para:
 
 | Componente | Datasheet / Referência Técnica |
 |-----------|--------------------------------|
-| *ESP32 DevKit (ESP32-WROOM)* | |
-| *Placa de Expansão ESP32 (Expansion Board)* |  |
-| *Ponte H L298N* |  |
+| *ESP32 DevKit (ESP32-WROOM)* | https://www.mouser.com/datasheet/2/891/esp-wroom-32_datasheet_en-1223836.pdf |
+| *Placa de Expansão ESP32 (Expansion Board)* | https://handsontec.com/dataspecs/module/ESP/ESP32%20Expansion%2030P.pdf |
+| *Ponte H L298N* | https://www.handsontec.com/dataspecs/L298N%20Motor%20Driver.pdf |
 | *Motor DC N20 com redução* | https://www.pololu.com/file/0J1487/n20-micro-metal-gearmotors.pdf |
 | *Bateria de lítio 2S (Li-ion / LiPo)* | |
-| *Módulo carregador de bateria de lítio (TP4056)* |  |
-| *Buzzer ativo 5V* |  |
-| *Interruptor (Switch ON/OFF)* | |
-| *Fusível (vidro / automotivo)* | |
+| *Módulo carregador de bateria de lítio (TP4056)* | https://www.circuits-diy.com/tp4056-battery-charger-module/ |
+| *Buzzer ativo 5V* | https://www.farnell.com/datasheets/2171929.pdf |
+| *Interruptor (Switch ON/OFF)* | https://components101.com/switches/spst-rocker-switch-non-illuminated |
+| *Fusível (vidro / automotivo)* | https://pt.scribd.com/document/430928597/a90-fusiveis-termicos|
 
 ---
 
