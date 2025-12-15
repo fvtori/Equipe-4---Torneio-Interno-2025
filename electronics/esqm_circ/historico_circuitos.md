@@ -102,42 +102,74 @@ A equipe também pôde visualizar de forma mais clara a **separação das linhas
 
 ### ⚙️ Circuito Teste 4 — Versão Final Simplificada com Placas de Servo
 
-![Circuito Teste 4](../img/Circuito_Oficial.jpg)
+---
 
-O **Circuito Teste 4** representa a **versão final e mais otimizada** do sistema eletrônico do robô **Jack**.  
-Nesta configuração, o foco principal foi **reduzir o peso total do robô, simplificar as conexões e eliminar componentes desnecessários**, sem comprometer a segurança ou a eficiência elétrica.  
-O resultado foi um circuito leve, confiável e funcional, perfeitamente adaptado para as dimensões do robô mini-sumô.
+### ⚙️ Circuito Teste 4 — Integração Completa com L298N e Placa de Expansão
 
-#### 🔋 Mudanças principais
-- **Bateria com 3 células AA:** substituiu as antigas baterias 18650, oferecendo uma solução mais compacta e leve, com **tensão nominal de 3,7 V** — valor adequado para o funcionamento do expansor e dos motores.  
-- **Eliminação da Ponte H (L298N):** foi substituída por **duas placas de servo modificadas**, reaproveitadas de servomotores comuns.  
-  Essas placas funcionam como **drivers simples de motor**, controladas diretamente pela ESP32.  
-- **Placas de servo como drivers:** cada motor DC passou a ser controlado individualmente por uma placa de servo, recebendo o sinal PWM da ESP32.  
-  Isso reduziu o número de fios e o tamanho do circuito, mantendo um controle estável e eficiente.  
-- **Buzzer ativo:** manteve-se ligado à ESP32, atuando como alerta sonoro durante a inicialização e operação.  
-- **Uso do expansor da ESP32:** seguiu como o núcleo da parte eletrônica, com o diferencial de permitir **soldagem direta de alimentação e GND** na parte inferior da placa.
+![Circuito Teste 4](../img/Circuito_teste4.jpg)
 
-#### ⚙️ Estrutura elétrica e ligações diretas
-Uma das decisões mais importantes nesta versão foi **eliminar completamente o uso de um regulador de tensão externo**.  
-O **fio positivo proveniente do interruptor** foi soldado diretamente no **pino de entrada DC do expansor** (localizado na parte inferior da placa), o qual possui **suporte para até 16 V** e já contém **regulagem interna de tensão**.  
-O **fio GND** também foi soldado diretamente no pino correspondente da parte inferior do expansor.
+O **Circuito Teste 4** marcou a fase de **integração completa dos principais módulos eletrônicos** do robô **Jack**, aproximando o projeto de uma configuração funcional real.  
+Nesta etapa, o foco foi **validar a comunicação entre a ESP32, a ponte H L298N e os motores**, além de testar uma nova forma de organização da alimentação utilizando a **placa de expansão roxa da ESP32**.
 
-Esse método trouxe várias vantagens:
-- **Redução de peso**, já que o regulador LM2596 foi removido;  
-- **Menor número de fios expostos**, com conexões mais curtas e diretas;  
-- **Aproveitamento do regulador onboard** do expansor, que fornece automaticamente as tensões adequadas (5 V e 3,3 V) para a ESP32 e periféricos;  
-- **Maior confiabilidade elétrica**, com menos pontos de falha e menor queda de tensão.
+Diferente dos testes anteriores, este circuito já foi **montado fisicamente** e utilizado para testes práticos de acionamento dos motores e distribuição de energia.
 
-#### 🧠 Organização geral do circuito
-1. **Case de 3 pilhas AA** → **interruptor principal** → **entrada DC do expansor** (soldada diretamente).  
-2. **Regulador interno do expansor** fornece 5 V e 3,3 V para a ESP32 e para os sinais lógicos.  
-3. **Drivers (placas de servo)** são alimentados diretamente pela linha de VCC, compartilhando o mesmo **GND comum**.  
-4. **GPIO22 e GPIO23** controlam os motores esquerdo e direito, respectivamente.  
-5. **GPIO2** é utilizado para o buzzer.
+A proposta desta versão foi **avaliar desempenho, estabilidade elétrica e viabilidade física** do conjunto dentro do chassi do robô.
 
-#### 💡 Benefícios finais
-- Circuito mais **leve**, **limpo** e **fácil de montar**;  
-- **Menor dissipação de calor** e maior eficiência;  
-- **Menos fios e menor risco de desconexão** durante o combate;  
-- Utilização inteligente dos **recursos nativos do expansor da ESP32**;  
-- Estrutura elétrica compacta, ideal para o robô mini-sumô.
+#### 🧩 Estrutura e componentes utilizados
+- **Bateria de lítio 2S (7,4 – 7,8 V)**: utilizada como fonte principal de energia, substituindo definitivamente os cases de pilhas.  
+- **Interruptor (switch)**: responsável por ligar e desligar todo o sistema eletrônico.  
+- **Fusível único**: adicionado em série para proteção contra curto-circuito e sobrecorrente.  
+- **Placa de expansão roxa da ESP32**: utilizada para distribuir alimentação (VCC e GND) e facilitar as conexões dos sinais, reduzindo a quantidade de fios.  
+- **Ponte H L298N**: responsável pelo controle bidirecional dos dois motores DC.  
+- **Motores DC N20 com redução**: empregados nos testes por serem mais leves e adequados ao limite de peso.  
+- **Buzzer**: conectado à ESP32 para sinalização sonora durante os testes.  
+- **Módulo carregador de bateria de lítio**: integrado ao circuito para facilitar a recarga da bateria.
+
+#### 🎯 Objetivo da versão
+O objetivo do Circuito Teste 4 foi:
+- Validar o **funcionamento da L298N** com a ESP32 via placa de expansão;  
+- Testar a **distribuição de energia pelos pads da placa de expansão**;  
+- Avaliar o **comportamento dos motores N20** sob carga real;  
+- Analisar a **organização física da elétrica** dentro do robô.
+
+Apesar de apresentar bons resultados, esta versão ainda foi considerada **experimental**, servindo como base para ajustes finais de organização, simplificação e documentação.
+
+---
+
+### 🏁 Circuito Teste 5 — Circuito Oficial do Robô Jack
+
+![Circuito Oficial — Versão Final](../img/Circuito_Oficial.jpg)
+
+O **Circuito Teste 5** representa a **versão final e oficial** do sistema eletrônico do robô **Jack**, adotada para a competição.  
+Esta configuração é resultado direto dos aprendizados obtidos nos testes anteriores, especialmente no Circuito Teste 4, com refinamentos voltados para **confiabilidade, compactação e facilidade de manutenção**.
+
+Nesta versão, o circuito foi **totalmente validado em bancada**, com testes contínuos de acionamento dos motores, alimentação estável da ESP32 e funcionamento correto dos periféricos.
+
+#### 🧩 Estrutura e componentes atualizados
+- **Bateria de lítio 2S (7,4 – 7,8 V)**: fonte principal de energia do robô.  
+- **Interruptor (switch)**: controle geral de alimentação.  
+- **Fusível único**: protege a ponte H e a alimentação principal contra falhas elétricas.  
+- **Placa de expansão roxa da ESP32**: utilizada como base central da elétrica, com soldagem direta da alimentação nos pads positivo e negativo.  
+- **ESP32 DevKit**: microcontrolador responsável pela lógica, comunicação Bluetooth e controle dos motores.  
+- **Ponte H L298N**: driver de potência para os motores, alimentado diretamente pela bateria.  
+- **Motores DC N20 com caixa de redução**: responsáveis pela tração do robô.  
+- **Módulo carregador de bateria de lítio**: permite recarga da bateria sem desmontagem do robô.  
+- **Buzzer ativo**: utilizado para sinalização sonora e feedback do sistema.
+
+#### 🔋 Organização da alimentação
+Nesta versão oficial, a alimentação foi organizada da seguinte forma:
+- O **positivo da bateria**, após o switch, é conectado diretamente ao **pad positivo da placa de expansão**;  
+- O **GND da bateria** é conectado ao **pad negativo da placa de expansão**;  
+- A **placa de expansão realiza a regulação interna**, fornecendo as tensões adequadas para a ESP32;  
+- A **ponte H L298N** recebe a tensão da bateria para acionamento dos motores;  
+- Todos os módulos compartilham **GND comum**, garantindo referência elétrica correta.
+
+#### 🎯 Objetivo da versão
+O Circuito Teste 5 teve como objetivo final:
+- Consolidar a **arquitetura elétrica definitiva** do robô;  
+- Reduzir ao máximo o número de fios e pontos de falha;  
+- Garantir **estabilidade elétrica durante combates**;  
+- Facilitar futuras manutenções e ajustes rápidos;  
+- Atender aos **requisitos de peso, espaço e confiabilidade** da competição.
+
+Esta versão foi adotada como o **circuito oficial do robô Jack**, sendo utilizada na fase final do projeto e durante o **Torneio Interno G.E.A.R. 2025**.
