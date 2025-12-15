@@ -20,7 +20,7 @@ O modelo inicial é composto por um chassi que abriga dois motores de alto torqu
 - **Engrenagem Cônica:**
   
 <div align="center">
-  <img width="392" height="433" alt="image" src="https://github.com/user-attachments/assets/670c9c31-cd83-41e5-a682-6aac47c7db8f" />
+  <img width="300" height="331" alt="image" src="https://github.com/user-attachments/assets/670c9c31-cd83-41e5-a682-6aac47c7db8f" />
  </div>
 
   Transmite o movimento do motor para a roda que mantêm uma relação de 90°.
@@ -58,12 +58,39 @@ O modelo inicial é composto por um chassi que abriga dois motores de alto torqu
   Montagem completa da base
 - **Rampa:**
   <div align="center">
-    <img width="481" height="524" alt="image" src="https://github.com/user-attachments/assets/33749544-adff-489f-ba26-9ce5b2f31550" />
+    <img width="275" height="300" alt="image" src="https://github.com/user-attachments/assets/33749544-adff-489f-ba26-9ce5b2f31550" />
      </div>
 
 O modelo conta com um protótipo de rampa na parte frontal, integrada ao chassi, projetada para auxiliar o robô durante seu deslocamento e interação com obstáculos.
 
 ---
+
+## 2. Montagem Final
+
+Após a mudança do motor JGA para o N20, foi necessário modificar a base a fim de atender aos requisitos do sumô. 
+O chassi abriga dois motores de torque médio (N20), conectados a duas rodas. É composto por duas camadas: a primeira camada envolve os motores, as rodas e a case de pilhas, enquanto a segunda acomoda a ponte H, a placa de expansão da ESP32 e a própria ESP 32.
+
+- **Primeira camada (Base do chassi):**
+   <div align="center">
+     <img width="300" height="227" alt="image" src="https://github.com/user-attachments/assets/c8a5b60d-c758-4e98-9538-9b67373263e9" />
+     </div>
+
+  Abriga motores, rodas e case.
+
+- **Segunda camada:**
+   <div align="center">
+     <img width="300" height="241" alt="image" src="https://github.com/user-attachments/assets/9dd86e1c-c25d-45a1-9037-895222efb129" />
+     </div>
+
+  Abriga ponte H e placa de expansão.
+
+- **Montagem completa:**
+   <div align="center">
+     <img width="300" height="284" alt="image" src="https://github.com/user-attachments/assets/fef67d3c-1a10-41d1-a5bb-f1a541e2bcda" />
+     </div>
+
+  Abriga ponte H e placa de expansão.
+  
 
 ## 3. Arquivo de Montagem
 
