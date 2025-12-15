@@ -152,7 +152,7 @@ Os aprendizados obtidos nesta versão direcionaram a equipe para uma solução m
 
 ### ⚙️ Circuito Teste 5 — Retorno à Ponte H e Reorganização para Redução de Peso
 
-![Circuito Teste 5](../img/Circuito_teste5.jpg)
+![Circuito Teste 5](../img/Circuito_teste5.jpeg)
 
 O **Circuito Teste 5** marca a transição definitiva para uma solução **mais robusta de acionamento dos motores**, corrigindo as limitações observadas no Circuito Teste 4.  
 Nesta etapa, a equipe realizou mudanças estruturais importantes, motivadas principalmente por **problemas de torque, confiabilidade elétrica e restrições severas de peso do chassi**.
@@ -200,7 +200,7 @@ Este circuito serviu como **ponte de transição** entre as soluções experimen
 
 ### 🏁 Circuito Final (Oficial) — Versão para Competição
 
-![Circuito Final](../img/Circuito_final.jpg)
+![Circuito Final](../img/Circuito_Final.png)
 
 O *Circuito Final* representa a consolidação de todas as decisões técnicas tomadas ao longo do desenvolvimento do robô *Jack, unindo **robustez elétrica, organização física e praticidade de uso* para a competição de mini-sumô.
 
