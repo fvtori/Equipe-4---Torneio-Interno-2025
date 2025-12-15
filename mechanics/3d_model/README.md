@@ -89,7 +89,17 @@ O chassi abriga dois motores de torque médio (N20), conectados a duas rodas. É
      <img width="300" height="284" alt="image" src="https://github.com/user-attachments/assets/fef67d3c-1a10-41d1-a5bb-f1a541e2bcda" />
      </div>
 
-  Abriga ponte H e placa de expansão.
+- Primeira camada
+<div align="center">
+  <img width="300" height="218" alt="image" src="https://github.com/user-attachments/assets/b4d001b6-8198-4ca7-957f-7425d7044f68" />
+</div>
+
+
+- Segunda Camada
+<div align="center">
+  <img width="300" height="253" alt="image" src="https://github.com/user-attachments/assets/c04b2186-0838-405e-81fb-05a530294a08" />
+
+</div>
   
 
 ## 3. Arquivo de Montagem
