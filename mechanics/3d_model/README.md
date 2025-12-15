@@ -68,7 +68,7 @@ O modelo conta com um protótipo de rampa na parte frontal, integrada ao chassi,
 ## 2. Montagem Final
 
 Após a mudança do motor JGA para o N20, foi necessário modificar a base a fim de atender aos requisitos do sumô. 
-O chassi abriga dois motores de torque médio (N20), conectados a duas rodas. É composto por duas camadas: a primeira camada envolve os motores, as rodas e a case de pilhas, enquanto a segunda acomoda a ponte H, a placa de expansão da ESP32 e a própria ESP 32.
+O chassi abriga dois motores de torque médio (N20), conectados a duas rodas. É composto por duas camadas: a primeira camada envolve os motores, as rodas e a case de pilhas, enquanto a segunda acomoda a ponte H, a placa de expansão da ESP32 e a própria ESP 32. A rampa se manteve a mesma.
 
 - **Primeira camada (Base do chassi):**
    <div align="center">
@@ -95,7 +95,7 @@ O chassi abriga dois motores de torque médio (N20), conectados a duas rodas. É
 </div>
 
 
-- Segunda Camada
+- Segunda Camada vista por baixo
 <div align="center">
   <img width="300" height="253" alt="image" src="https://github.com/user-attachments/assets/c04b2186-0838-405e-81fb-05a530294a08" />
 
