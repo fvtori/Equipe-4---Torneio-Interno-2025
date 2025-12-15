@@ -100,10 +100,6 @@ A equipe também pôde visualizar de forma mais clara a **separação das linhas
 
 ---
 
-### ⚙️ Circuito Teste 4 — Versão Final Simplificada com Placas de Servo
-
----
-
 ### ⚙️ Circuito Teste 4 — Integração Completa com L298N e Placa de Expansão
 
 ![Circuito Teste 4](../img/Circuito_teste4.jpg)
@@ -138,7 +134,7 @@ Apesar de apresentar bons resultados, esta versão ainda foi considerada **exper
 
 ### 🏁 Circuito Teste 5 — Circuito Oficial do Robô Jack
 
-![Circuito Oficial — Versão Final](../img/Circuito_Oficial.jpg)
+![Circuito Oficial — Versão Final](../img/Circuito_Final.png)
 
 O **Circuito Teste 5** representa a **versão final e oficial** do sistema eletrônico do robô **Jack**, adotada para a competição.  
 Esta configuração é resultado direto dos aprendizados obtidos nos testes anteriores, especialmente no Circuito Teste 4, com refinamentos voltados para **confiabilidade, compactação e facilidade de manutenção**.
