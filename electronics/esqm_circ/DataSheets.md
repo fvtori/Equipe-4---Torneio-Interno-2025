@@ -15,15 +15,15 @@ Os links apresentados servem como base para:
 
 | Componente | Datasheet / Referência Técnica |
 |-----------|--------------------------------|
-| *ESP32 DevKit (ESP32-WROOM)* | https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf |
-| *Placa de Expansão ESP32 (Expansion Board)* | https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/index.html |
-| *Ponte H L298N* | https://www.st.com/resource/en/datasheet/l298.pdf |
+| *ESP32 DevKit (ESP32-WROOM)* | |
+| *Placa de Expansão ESP32 (Expansion Board)* |  |
+| *Ponte H L298N* |  |
 | *Motor DC N20 com redução* | https://www.pololu.com/file/0J1487/n20-micro-metal-gearmotors.pdf |
-| *Bateria de lítio 2S (Li-ion / LiPo)* | https://www.tme.eu/Document/3f2b8d82d3c88eaa9b1bafdc8fbc6b3a/li-ion.pdf |
-| *Módulo carregador de bateria de lítio (TP4056)* | https://www.best-microcontroller-projects.com/support-files/tp4056a.pdf |
-| *Buzzer ativo 5V* | https://components101.com/sites/default/files/component_datasheet/Buzzer_Datasheet.pdf |
-| *Interruptor (Switch ON/OFF)* | https://www.cui.com/product/resource/switch-datasheet.pdf |
-| *Fusível (vidro / automotivo)* | https://www.littelfuse.com/~/media/electronics/datasheets/fuses/littelfuse_fuse_datasheet.pdf |
+| *Bateria de lítio 2S (Li-ion / LiPo)* | |
+| *Módulo carregador de bateria de lítio (TP4056)* |  |
+| *Buzzer ativo 5V* |  |
+| *Interruptor (Switch ON/OFF)* | |
+| *Fusível (vidro / automotivo)* | |
 
 ---
 
