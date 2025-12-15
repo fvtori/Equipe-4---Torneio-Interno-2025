@@ -17,11 +17,13 @@ O modelo inicial é composto por um chassi que abriga dois motores de alto torqu
   Transmite o movimento do motor para a roda que mantêm uma relação de 90°.
 
 - **Bucha:**
+
   <img width="577" height="434" alt="image" src="https://github.com/user-attachments/assets/3580a28a-40ff-42f1-82b2-72d269fed89f" />
   
   Mantém o espaçamento correto entre o rolamento e a parede interna do chassi.
 
 - **Arruela:**
+  
   <img width="380" height="444" alt="image" src="https://github.com/user-attachments/assets/6521ac43-c56a-4f82-b45d-2198e839acd1" />
 
 
