@@ -50,6 +50,12 @@ O modelo inicial é composto por um chassi que abriga dois motores de alto torqu
 
   Permite o giro suave da roda e conecta o eixo ao conjunto de engrenagem.
 
+- **Montagem:**
+  <div align="center">
+    <img width="523" height="413" alt="image" src="https://github.com/user-attachments/assets/b8b2a4cb-fb8f-408f-b1be-059decdc1849" />
+  </div>
+
+  Montagem completa da base
 ---
 
 ## 2. Rampa Frontal
